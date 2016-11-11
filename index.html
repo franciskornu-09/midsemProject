@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Folder System</title>
+	<link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+      <script src="allScript.js"></script>
+   </head>
+<body>
+	<div id="box" action="" class="col s12" method="POST" style="width: 90%"><br>
+	<div style="text-align: center;font-size: 180%"><i>Ashesi Car Pool</i></div><br>
+	<div><img src="carpool.jpg" width="90" height="70" style="margin-left: 34%;border-radius: 65px"></div>
+	<div class="row">
+	<div class="blue-text text-darken-2" id="display" style="text-align: center;">
+
+</div>
+	<br>	
+	<div class="input-field col s11">
+		<i class="material-icons prefix icon-color">perm_identity</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='text' name='username' id='username' style="color:black" />
+                <label for='username'>Username</label>
+        </div>
+	<div class="input-field col s11">
+		  <i class="material-icons prefix icon-color">lock</i>
+          <!-- <input placeholder="Password" id="password" type="password" style="color: white" class="validate" name="password"> -->
+          <input class='validate' type='password' name='password' id='password' style="color:black"/>
+                <label for='password'>Password</label>
+        </div>
+     <button class="btn waves-effect waves-light" type="submit" style="margin-left: 22%" name="submit" onclick="login()">Login
+     </button>&nbsp;&nbsp;
+     <a href="signup.html"><u>Sign Up</u></a>
+	</div>
+	</div>
+	<div><center><i>Welcome to the Ashesi Car Pool Application. If this is your first time, please <b style="color:#0099cc"><a href="signup.html">sign up</a></b> and starting creating and joining pools to your various destinations. If you are already signed up, you would just have to <b style="color:#0099cc">log in</b>.</i></center></div>
+</body>
+</html>
