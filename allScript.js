@@ -137,7 +137,7 @@ var account_id;
 
 	function displayAll(xhr,status){
 				if(status!="success"){
-					 document.getElementById('display').innerHTML ="error sending request";
+					 alert("Error occurred when checking");
 					return;
 				}
 						
