@@ -6,14 +6,11 @@
 		<meta name="msapplication-tap-highlight" content="no">
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 		<link rel="stylesheet" href="style.css">
-	  <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.css">
-<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
-	  <link rel="stylesheet" href="materialize-v0.97.5/materialize/css/materialize.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-      <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
-      <script src="allScript.js"></script>
-      <script src="scripts/jquery.js"></script>
-		<script src="scripts/jquery.mobile.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+		<!-- Path to your custom app styles-->
 		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
 		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
 
@@ -50,6 +47,10 @@
 		}
 		</style>
 		
+		<script src="jquery.cookie.js" type="text/javascript"></script>
+		<script src="scripts/jquery.js"></script>
+		<script src="allScript.js" type="text/javascript"></script>
+		<script src="scripts/jquery.mobile.js"></script>
 		<title>Dashboard</title>
 	</head>
 	<body>
@@ -63,7 +64,7 @@
 			<div data-role="content" style="text-shadow: none">
 				<table style="margin-left: 2%;">
 				<tr><td>
-				<a href="#pools" data-transition="slide" onclick="displayPool()" class="waves-effect waves-light btn" style="color:white;width: 95%">Pools</a>
+				<a href="#pools" data-transition="slide" onclick="displayPool()" class="waves-effect waves-light btn" style="color:white;width: 95%">Pools<i class="material-icons">add</i></a>
 				</td><td>
 				<a href="#create" data-transition="slide" class="waves-effect waves-light btn" style="color:white;width:90%">Create</a>
 				</td></tr>
@@ -72,7 +73,7 @@
 				<a href="#profile" onclick="profile()" data-transition="slide" class="waves-effect waves-light btn" style="color:white;width: 95%">Profile</a>
 				</td>
 				<td>
-				<a class="waves-effect waves-light btn" href="#news" data-transition="slide" href="#newsPage"style="color:white;width: 90%">News</a>
+				<a class="waves-effect waves-light btn" href="#news" data-transition="slide" onclick="displayNews()"style="color:white;width: 90%">News</a>
 				</td>	
 				</tr>
 				</table>
@@ -110,20 +111,6 @@
 			</div>
 		</div>
 		</div>
-
-		<div id="myPool" data-role="page" style="background: white">
-		<div data-role="header" style="text-shadow: none;background: #d9d9d9">
-				<h1 style="color: black">Join Pools</h1>
-				<a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Home</a>
-				<a href="dashboard.html" data-role="button" data-icon="back" data-iconpos="notext" style="background: white;border: none;">Back</a>
-			</div>
-		<div data-role="content" style="text-shadow: none">
-			<div id="mPools">
-				
-			</div>
-		</div>
-		</div>
-		
 		<div id="join" data-role="page" style="background:white">
 		<div data-role="header" style="text-shadow: none;background: #d9d9d9">
 				<h1 style="color: black">Join Pools</h1>
@@ -132,13 +119,13 @@
 		<div data-role="content" style="text-shadow: none">
 		<div class="row">
 		<div class="input-field col s11">
-		<i class=\"fa fa-trash\" style=\"margin-left:20px\"></i>
+		<i class="material-icons prefix icon-color">perm_identity</i>
           <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
           <input class='validate' type='text' name='poolId' id='poolId' style="color:black" />
                 <label for='poolId'>Specify The Pool ID</label>
         </div>
 		<div class="input-field col s11">
-		  <i class=\"fa fa-trash\" style=\"margin-left:20px\"></i>
+		  <i class="material-icons prefix icon-color">lock</i>
           <!-- <input placeholder="Password" id="password" type="password" style="color: white" class="validate" name="password"> -->
           <input class='validate' type='number' name='userId' id='userId' style="color:black"/>
                 <label for='userId'>User ID</label>
@@ -159,10 +146,22 @@
 		<div id="profile" data-role="page" style="background: white">
 		<div data-role="header" style="text-shadow: none;background: #d9d9d9">
 				<h1 style="color: black">Profile</h1>
-				<a href="http://52.89.116.249/~francis.kornu/carpool/dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+				<a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
 			</div>
 		<div data-role="content" style="text-shadow: none;">
 	    	<div id="profileContent">
+	    		
+	    	</div>
+		</div>
+		</div>
+
+		<div id="myPools" data-role="page" style="background: white">
+		<div data-role="header" style="text-shadow: none;background: #d9d9d9">
+				<h1 style="color: black">Profile</h1>
+				<a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+			</div>
+		<div data-role="content" style="text-shadow: none;">
+	    	<div id="createdPools">
 	    		
 	    	</div>
 		</div>
@@ -171,7 +170,7 @@
 		<div id="create" data-role="page" style="background: white">
 		<div data-role="header" style="text-shadow: none;background: #d9d9d9">
 				<h1 style="color: black">Create Pool</h1>
-				<a href="http://52.89.116.249/~francis.kornu/carpool/dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+				<a href="dashboard.html" data-role="button" data-icon="home" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
 			</div>
 		<div data-role="content" style="text-shadow: none;">
 		<div class="row">

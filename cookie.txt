@@ -1,0 +1,6 @@
+$.cookie('user_id', obj.id);
+
+var f;
+
+f= $.cookie('user_id);
+

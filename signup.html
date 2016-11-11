@@ -5,8 +5,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="materialize-v0.97.5/materialize/icon?family=Material+Icons">
     <link rel="stylesheet" href="materialize-v0.97.5/materialize/css/materialize.min.css">
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
       <script src="materialize-v0.97.5/materialize/js/materialize.min.js"></script>
@@ -24,7 +23,7 @@
     var password = $("#password").val();
     var email = $("#email").val();
 
-    var theUrl="allPhp.php?cmd=6&firstname="+firstname+"&lastname="+lastname+"&username="+username+"&phone="+phone+"&password="+password+"&email="+email;
+    var theUrl="http://52.89.116.249/~francis.kornu/carpool/allPhp.php?cmd=6&firstname="+firstname+"&lastname="+lastname+"&username="+username+"&phone="+phone+"&password="+password+"&email="+email;
     $.ajax(theUrl,
           {
           async:true,
@@ -44,7 +43,7 @@
         return;
         }else{
            alert("Account successfully created");
-           window.location="index.html";
+           window.location="http://52.89.116.249/~francis.kornu/carpool/index.html";
         }
   }
 </script>

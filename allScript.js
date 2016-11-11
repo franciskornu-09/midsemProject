@@ -1,6 +1,6 @@
 var account_id;
 	function profile(){	
-		var theUrl="profile.php";
+		var theUrl="http://52.89.116.249/~francis.kornu/carpool/profile.php";
 				$.ajax(theUrl,
 					{
 					async:true,
@@ -17,7 +17,7 @@ var account_id;
 
 				if (obj.result==0){
     			alert("The system encounted a problem");
-				window.location="dashboard.html";
+				window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
    			    }else{
    			    	var profile="";
 					for (var i in obj.profile){
@@ -49,7 +49,7 @@ var account_id;
 	}
 }
 	function myPools(){
-		var theUrl="checkPools.php";
+		var theUrl="http://52.89.116.249/~francis.kornu/carpool/checkPools.php";
 				$.ajax(theUrl,
 					{
 					async:true,
@@ -65,7 +65,7 @@ var account_id;
 			var obj=$.parseJSON(xhr.responseText);
 			if (obj.result==0){
 				alert("You have not created any pools OR the system encounted a problem");
-				window.location="dashboard.html";
+				window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}
 			var checkPool="";
 					for (var i in obj.checkPools){
@@ -127,7 +127,7 @@ var account_id;
 	}
 
 	function displayDetails(poolID){
-	var theUrl="allPhp.php?cmd=8&poolid="+poolID;
+	var theUrl="http://52.89.116.249/~francis.kornu/carpool/allPhp.php?cmd=8&poolid="+poolID;
 				$.ajax(theUrl,
 					{
 					async:true,
@@ -144,7 +144,7 @@ var account_id;
 				var obj=$.parseJSON(xhr.responseText);
 				if (obj.result==0){
 				alert("The system encounted a problem");
-				window.location="dashboard.html";
+				window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}
 					var table="";
 					for (var i in obj.apools){
@@ -161,7 +161,7 @@ var account_id;
 			}
 
 	function displayPool(){
-				var theUrl="allPhp.php?cmd=2";
+				var theUrl="http://52.89.116.249/~francis.kornu/carpool/allPhp.php?cmd=2";
 				$.ajax(theUrl,
 					{
 					async:true,
@@ -178,7 +178,7 @@ var account_id;
       	var amount = $("#amount").val();
         var username= $("#userN").val();
         var destination = $("#destination").val();
-        var theUrl="create.php?cmd=4&numAllow="+numberAllow+"&date="+date+"&location="+location+"&time="+time+"&amount="+amount+"&destination="+destination;
+        var theUrl="http://52.89.116.249/~francis.kornu/carpool/create.php?cmd=4&numAllow="+numberAllow+"&date="+date+"&location="+location+"&time="+time+"&amount="+amount+"&destination="+destination;
         $.ajax(theUrl,
 					{
 					async:true,
@@ -189,7 +189,7 @@ var account_id;
 	function createComplete(xhr,status){
 		if(status!="success"){
 			alert("The system encounted a problem");
-				window.location="dashboard.html";
+				window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}
 						
 				var obj=$.parseJSON(xhr.responseText);
@@ -200,12 +200,12 @@ var account_id;
 					alert("Sorry. You can not create a pool with the USERNAME you typed. Please use your USERNAME");
 				}else{
 					alert("Pool successfully created");
-					window.location="dashboard.html";
+					window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}
 	}
 
 	function displayNews(){
-		var theUrl="allPhp.php?cmd=5";
+		var theUrl="http://52.89.116.249/~francis.kornu/carpool/allPhp.php?cmd=5";
 		$.ajax(theUrl,
 			{
 			async:true,
@@ -219,7 +219,7 @@ var account_id;
 	}	
 
 	function join(pID,Owner){
-		var theUrl="join.php?poolId="+pID+"&owner="+Owner;
+		var theUrl="http://52.89.116.249/~francis.kornu/carpool/join.php?poolId="+pID+"&owner="+Owner;
 		$.ajax(theUrl,
 					{
 					async:true,
@@ -239,16 +239,16 @@ var account_id;
 				return;
 				}else if (obj.result==3){
 					alert("This Pool has the number of members needed. Please join another pool or create a new one. Thank you");
-					window.location="dashboard.html";
+					window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}else if (obj.result==4){
 					alert("You can not join a pool you created!!");
-					window.location="dashboard.html";
+					window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}else if (obj.result==2){
 					alert("You can not join a pool, because you have already joined this pool.!!");
-					window.location="dashboard.html";
+					window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}else{
 					 alert("Pool successfully joined");
-					 window.location="dashboard.html";
+					 window.location="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 				}
 	}
 
@@ -262,14 +262,14 @@ var account_id;
 			 if (block.result==0){
 			 	document.getElementById('display').innerHTML ="USERNAME OR PASSWORD IS WRONG";
 				 }else{
-			 window.location ="dashboard.html";
+			 window.location ="http://52.89.116.249/~francis.kornu/carpool/dashboard.html";
 		}
 	}
 
 	function login(){
 		var username=$("#username").val();
 		var password=$("#password").val();
-		var theUrl="allPhp.php?cmd=1&username="+username+"&password="+password;
+		var theUrl="http://52.89.116.249/~francis.kornu/carpool/allPhp.php?cmd=1&username="+username+"&password="+password;
 		$.ajax(theUrl,
 					{
 					async:true,
