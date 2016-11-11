@@ -1,0 +1,116 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+      <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+    <script src="scripts/jquery.js"></script>
+    <!-- your scripts here -->
+    <script src="scripts/jquery.mobile.js"></script>
+<script>
+  function createUser(){
+    var firstname = $("#firstname").val();
+    var lastname = $("#lastname").val();
+    var username = $("#username").val();
+    var phone  = $("#phone").val();
+    var password = $("#password").val();
+    var email = $("#email").val();
+
+    var theUrl="allPhp.php?cmd=6&firstname="+firstname+"&lastname="+lastname+"&username="+username+"&phone="+phone+"&password="+password+"&email="+email;
+    $.ajax(theUrl,
+          {
+          async:true,
+          complete:createComplete}
+          );
+  }
+
+  function createComplete(xhr,status){
+    if(status!="success"){
+      alert("Error");
+          return;
+        }
+            
+        var obj=$.parseJSON(xhr.responseText);
+        if (obj.result==0){
+          alert("You were not able to create a Pool");
+        return;
+        }else{
+           alert("Account successfully created");
+           window.location="index.html";
+        }
+  }
+</script>
+
+   </head>
+<body>
+	<div data-role="page" id="landingPage" style="background: white">
+      <div data-role="header" style="text-shadow: none;background: #d9d9d9">
+        <h1 style="color: black">Sign Up</h1>
+        
+      </div><!-- /header -->
+      <div data-role="content" style="text-shadow: none">
+	<div style="text-align: center;font-size: 180%"><i>Ashesi Car Pool</i></div><br>
+	<div><img src="cloud2.png" width="90" height="70" style="margin-left: 34%"></div>
+	<div class="row">
+	<div class="blue-text text-darken-2" id="display" style="text-align: center;">
+  
+  </div>
+	<br>
+	<div class="input-field col s11">
+		<i class="material-icons prefix icon-color">perm_identity</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='text' name='firstname' id='firstname' style="color:black" />
+                <label for='firstname'>Firstname</label>
+        </div>	
+	<div class="input-field col s11">
+		<i class="material-icons prefix icon-color">perm_identity</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='text' name='lastname' id='lastname' style="color:black" />
+                <label for='lastname'>Lastname</label>
+        </div>
+    <div class="input-field col s11">
+		<i class="material-icons prefix icon-color">assignment_ind</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='text' name='username' id='username' style="color:black" />
+                <label for='username'>Username</label>
+        </div>
+    <div class="input-field col s11">
+		<i class="material-icons prefix icon-color">phone</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='number' name='phone' id='phone' style="color:black" />
+                <label for='phone'>Phone Number</label>
+        </div>
+    <div class="input-field col s11">
+		<i class="material-icons prefix icon-color">mail</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='email' name='email' id='email' style="color:black" />
+                <label for='email'>Email</label>
+        </div>
+	<div class="input-field col s11">
+		  <i class="material-icons prefix icon-color">lock</i>
+          <!-- <input placeholder="Password" id="password" type="password" style="color: white" class="validate" name="password"> -->
+          <input class='validate' type='password' name='password' id='password' style="color:black"/>
+                <label for='password'>Password</label>
+        </div>
+   <!-- <button class="btn waves-effect waves-light" type="submit" style="margin-left: 22%" name="submit" onclick="login()">Login
+     </button> -->
+     <a class="waves-effect #03A9F4 btn-large" onclick="createUser()" style="color:white;margin-left: 25%">Sign Up</a>
+	</div>
+  </div>
+  </div>
+  <!----------------------------->
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+      <script type="text/javascript" src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Folder System</title>
+	<link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+<script>
+	function response(){
+					 document.getElementById('display').innerHTML ="USERNAME OR PASSWORD IS WRONG";
+					return;
+				}
+</script>
+   </head>
+<body id="image">
+	<form action="" class="col s12" method="POST" style="width: 21%"><br>
+	<div><img src="cloud2.png" width="90" height="70" style="margin-left: 34%"></div>
+	<div class="row">
+	<div class="blue-text text-darken-2" id="display" style="text-align: center;">
+
+</div>
+	<br>	
+	<div class="input-field col s11">
+		<i class="material-icons prefix icon-color">perm_identity</i>
+          <!-- <input placeholder="Username" id="username" type="text" style="color: white" class="validate" name="username"> -->
+          <input class='validate' type='text' name='username' id='username' style="color:white" />
+                <label for='username'>Username</label>
+        </div>
+	<div class="input-field col s11">
+		  <i class="material-icons prefix icon-color">lock</i>
+          <!-- <input placeholder="Password" id="password" type="password" style="color: white" class="validate" name="password"> -->
+          <input class='validate' type='password' name='password' id='password' style="color:white"/>
+                <label for='password'>Password</label>
+        </div>
+     <button class="btn waves-effect waves-light" type="submit" style="margin-left: 22%"name="submit">Login
+     </button>
+	</div>
+	</form>
+</body>
+</html>
+<?php
+include_once("users.php");
+$obj=new users();
+if (isset($_REQUEST['submit'])){
+$login=$obj->loginDoctor($_REQUEST['username'],$_REQUEST['password']);
+			if (!$login){
+					echo "<script>
+    	                    response();
+                          </script>";
+				} else {
+					header("Location:dashboard.php");
+				}
+			}
+?>
